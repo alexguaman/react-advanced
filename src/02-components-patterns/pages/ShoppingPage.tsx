@@ -2,8 +2,9 @@ import {
   ProductCard,
   ProductImage,
   ProductTitle,
-  ProductButtons
+  ProductButtons,
 } from "../components";
+import "../styles/custom-styles.css";
 
 const product = {
   id: "1",
@@ -14,6 +15,7 @@ const product = {
 const product2 = {
   id: "1",
   title: "More Coffee",
+  img: "./coffee-mug.png",
 };
 
 const ShoppingPage = () => {
@@ -28,22 +30,29 @@ const ShoppingPage = () => {
           flexWrap: "wrap",
         }}
       >
-        <ProductCard product={product}>
+        <ProductCard product={product} className="bg-dark text-white">
           <>
-            <ProductCard.Image />
-            <ProductCard.Title />
-            <ProductCard.Buttons />
+            <ProductCard.Image className="custom-image"/>
+            <ProductCard.Title className="text-white text-bold" />
+            <ProductCard.Buttons className="custom-buttons" activeBtnClass="no-class"/>
           </>
         </ProductCard>
 
-        <ProductCard product={product2}>
+        <ProductCard product={product2} className="bg-dark text-white">
           <>
-            <ProductImage />
-            <ProductTitle title="Super Cofee"/>
-            <ProductButtons />
+            <ProductImage className="custom-image"/>
+            <ProductTitle title="Super Cofee" className="text-white text-bold"/>
+            <ProductButtons className="custom-buttons" activeBtnClass="no-class"/>
           </>
         </ProductCard>
       </div>
+      <ProductCard product={product2} style={{backgroundColor: '#70D1F8'}}>
+          <>
+            <ProductImage style={{boxShadow: "0px 10px 5px gray"}}/>
+            <ProductTitle style={{fontWeight: 'bold'}}/>
+            <ProductButtons style={{display: "flex", justifyContent: "end"}}/>
+          </>
+        </ProductCard>
     </div>
   );
 };
